@@ -37,6 +37,7 @@
     <span id = "monster-att"></span>
   </div>
 </div>
+
 <script>
   const $startScreen = document.querySelector('#start-screen');
   const $gameMenu = document.querySelector('#game-menu');
@@ -90,9 +91,18 @@
       } else if (input === '2') { // 휴식
       } else if (input === '3') { // 종료
       }
+    }  
+    onBattleMenuInput = (event) => {
+      event.preventDefault();
+      const input = event.target['battle-input'].value;
+      if (input === '1') { // 공격
+      } else if (input === '2') { // 회복
+      } else if (input === '3') { // 도망
+      }
     }
-    
   }
+
+
 
   class Hero {
     constructor(game, name) {
