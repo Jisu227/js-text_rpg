@@ -174,20 +174,27 @@
     }
   }
 
-
-
-  class Hero {
-    constructor(game, name) {
+  class Unit {
+    constructor(game, name, hp, att, xp) {
       this.game = game;
       this.name = name;
-      this.lev = 1;
-      this.maxHp = 100;
-      this.hp = 100;
-      this.xp = 0;
-      this.att = 10;
+      this.maxHp = hp;
+      this.hp = hp;
+      this.xp = xp;
+      this.att = att;
     }
     attack(target) {
       target.hp -= this.att;
+    }
+  }
+
+  class Hero extends Unit {
+    constructor(game, name) {
+      super(game, name, 100, 10, 0);
+      this.lev = 1;
+    }
+    attack(target) {
+      super.attack(target);
     }
     heal(monster) {
       this.hp += 20;
@@ -206,17 +213,9 @@
     }  
   }  
 
-  class Monster {
+  class Monster extends Unit{
     constructor(game, name, hp, att, xp) {
-      this.game = game;
-      this.name = name;
-      this.maxHp = hp;
-      this.hp = hp;
-      this.xp = xp;
-      this.att = att;
-    }
-    attack(target) {
-      target.hp -= this.att;
+      super(game, name, hp, att, xp);
     }
   }
 
@@ -226,6 +225,8 @@
     const name = event.target['name-input'].value;
     game = new Game(name);
   });
+
+  
 
 </script>
 </body>
