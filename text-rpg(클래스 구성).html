@@ -82,6 +82,16 @@
         $battleMenu.style.display = 'block';
       }
     }
+    onGameMenuInput = (event) => {
+      event.preventDefault();
+      const input = event.target['menu-input'].value;
+      if (input === '1') { // 모험
+        this.changeScreen('battle');
+      } else if (input === '2') { // 휴식
+      } else if (input === '3') { // 종료
+      }
+    }
+    
   }
 
   class Hero {
