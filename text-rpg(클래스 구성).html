@@ -67,6 +67,21 @@
       $battleMenu.addEventListener('submit', this.onBattleMenuInput);
       this.changeScreen('game');
     }
+    changeScreen(screen) {
+      if (screen === 'start') {
+        $startScreen.style.display = 'block';
+        $gameMenu.style.display = 'none';
+        $battleMenu.style.display = 'none';
+      } else if (screen === 'game') {
+        $startScreen.style.display = 'none';
+        $gameMenu.style.display = 'block';
+        $battleMenu.style.display = 'none';
+      } else if (screen === 'battle') {
+        $startScreen.style.display = 'none';
+        $gameMenu.style.display = 'none';
+        $battleMenu.style.display = 'block';
+      }
+    }
   }
 
   class Hero {
